@@ -14,16 +14,19 @@ const Home = () => {
       item.name.toLowerCase().includes(value.toLowerCase())
     );
 
-    if(filteredData.length) {
+    if (filteredData.length) {
       setNftData(filteredData);
     } else {
-      setNftData(NFTData)
+      setNftData(NFTData);
     }
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <FocusedStatusBar barStyle='dark-content' />
+      <FocusedStatusBar
+        barStyle='dark-content'
+        backgroundColor={COLORS.white}
+      />
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>
           <FlatList
@@ -31,7 +34,7 @@ const Home = () => {
             renderItem={({ item }) => <NFTCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<HomeHeader onSearch={handleSearch}/>}
+            ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
           />
         </View>
         <View
